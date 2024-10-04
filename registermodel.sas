@@ -1,10 +1,12 @@
-libname mylib '/workspaces/myfolder/myscripts/data';
+libname mylib '/workspaces/myfolder/workbench-session/data';
 
 options set=SSLREQCERT="allow";
 
+/*
 data mylib.hmeq;
     set sampsio.hmeq;
 run;
+*/
 
 proc treesplit data = mylib.hmeq;
    input loan value mortdue debtinc derog / level = interval;
