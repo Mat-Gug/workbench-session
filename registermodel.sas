@@ -1,6 +1,7 @@
 libname mylib '/workspaces/myfolder/workbench-session/data';
 
 options set=SSLREQCERT="allow";
+%let folder_path = /workspaces/myfolder/workbench-session/;
 
 /*
 data mylib.hmeq;
@@ -18,7 +19,7 @@ run;
 
 proc astore;
    download rstore = mylib.treeStore_hmeq
-            store = "treeAstore.sasast";
+            store = "&folder_path.treeAstore.sasast";
 run;
 
 /* get token */
@@ -30,15 +31,15 @@ R2xvc3NhcnkuR2xvc3NhcnlBZG1pbmlzdHJhdG9ycyIsIkNJUyBWaXlhIEFsd2F5cyBPbiIsIkNhdGFs
 bWluaXN0cmF0b3JzIiwiSUNVcyIsIk1pZ3JhdGlvbkFkbWlucyIsIkVzcmlVc2VycyIsIkNBU0hvc3RBY2NvdW50UmVxdWlyZWQiXSwiY2xpZW50X2lkIjoic2FzLmxhdW5j
 aGVyIiwiYXVkIjpbInNhcy5sYXVuY2hlciIsInVhYSJdLCJleHRfaWQiOiI5Vjd0QTJpY01ubzc0WTQ4a1lNZDdRenJIbFRTaHdxeHF3eWpPLUtGdFpzIiwiemlkIjoidWFh
 IiwiZ3JhbnRfdHlwZSI6InVybjppZXRmOnBhcmFtczpvYXV0aDpncmFudC10eXBlOmp3dC1iZWFyZXIiLCJ1c2VyX2lkIjoiZDExNDg0YmQtMWExNC00MmNiLThlNzktZmYz
-YjhiMTAzODM0IiwiYXpwIjoic2FzLmxhdW5jaGVyIiwic2NvcGUiOlsidWFhLnVzZXIiXSwiZXhwIjoxNzI4MDMzNzU1LCJpYXQiOjE3MjgwMzAxNTUsImp0aSI6IjYyMGI3
-ODVhZGQwODRlOGY4ODdjNGI2MjE0NDUxYTg3IiwiZW1haWwiOiJNYXR0aWEuR3VnbGllbG1lbGxpQHNhcy5jb20iLCJyZXZfc2lnIjoiNTY0MzY2YTkiLCJjaWQiOiJzYXMu
-bGF1bmNoZXIifQ.sZ9qK1KJDaM16-KMvS1R14EwRdRorDNQhVax0GK7-IWXXwF25M8hLSJhzl6FOiHIypwcnbf9LH_OqGCZEDcNakfFq6e0W5sjfS7KyppqVjBndOuv1YqOa
-jhHrTe879hIHvIFJSK0dmkrSr5aIBGSmVxu1bPzkGMM0gdkY5VuT1zT_Qje9vk0ZFlXbt-hxqebAKgxyqjGZWOTAan7eDecqG7k10Z6aYj_UVqb-TLM_uoQ1NM3FE30LWnPk
-HwKMRQs8VPV8MfKWbh1tdT66f_Lw-_K2cELXnMcKJFE1OlRioVMAznUBY05M6pdQPvLTiOG7m_HD_LeH5G-mRw3lBUfrg"
+YjhiMTAzODM0IiwiYXpwIjoic2FzLmxhdW5jaGVyIiwic2NvcGUiOlsidWFhLnVzZXIiXSwiZXhwIjoxNzI4Mjg4ODAxLCJpYXQiOjE3MjgyODUyMDEsImp0aSI6ImFhZGVj
+ZjZiNjFiZDRlZGM4YTg0MmUxOTY3MzU3YTRlIiwiZW1haWwiOiJNYXR0aWEuR3VnbGllbG1lbGxpQHNhcy5jb20iLCJyZXZfc2lnIjoiNTY0MzY2YTkiLCJjaWQiOiJzYXMu
+bGF1bmNoZXIifQ.Q-HxDowPrVY76ovyRvW4EBc7UDAFySZKKdL1XlqqFor_AUSTnL7ttexWHa_TUZV02MtqN2GRQgG2fFn9abB3x54qbZ4YIWrNppxxDUwJR2fQPJkQH_xBa
+7mFniFRb1eN6c561QQVfQERbkbgEdrMzSgS70Irfkm9f62QFiPNbJ2Y3GHHGAHVIjz01sPdPRKAdBcoQnWnegDUVHWQ3jpr6oFJcOIdHIAqePf6B_8-8N2NYXsGG-26irRKr
+EwvX3IehLPoj8uNzFCgvUyH4737SUHCgHCwcVfBqabdxQV0VIH5LAUV2_7N55CnALZXcfgSuF76E1zPNNY0fH1_4RxSaA"
 %mend;
 
 proc registermodel
-      name = "Tree Astore"
+      name = "TreeAstore"
       description = "Decision Tree Astore Model"
       data = mylib.hmeq
       algorithm = TREE
@@ -46,8 +47,8 @@ proc registermodel
       server = "https://create.demo.sas.com"
       oauthtoken = "myTokenName"
       replace;
-   project name="registermodel-project" folder="myFolder";
-   astoremodel store = "treeAstore.sasast";
+   project name="registermodelproject" folder="myFolder";
+   astoremodel store = "&folder_path.treeAstore.sasast";
    target bad / level=binary event="1";
    assessment;
 run;
