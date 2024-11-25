@@ -1,4 +1,4 @@
-# Training Random Forest Models with Python and SAS in SAS Viya Workbench
+# Training Random Forest Models with Python and SAS in SAS Viya Workbench :computer:
 
 Welcome to this repository! If you're curious about how Python and SAS can work together in SAS Viya Workbench, you've come to the right place. Here, we'll explore how to train Random Forest models using three different approaches:
 
@@ -10,7 +10,7 @@ The dataset used in this project is provided in the `CUSTOMS.csv` file. It conta
 
 The goal is to show just how flexible and accessible SAS Viya Workbench can be, and how you can leverage SAS analytics, even if you’re not familiar with the SAS programming language.
 
-## What You'll Find Here
+## What You'll Find Here :arrow_down:
 
 I've created two notebooks to guide you through this journey.
 
