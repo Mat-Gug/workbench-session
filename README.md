@@ -6,6 +6,8 @@ Welcome to this repository! If you're curious about how Python and SAS can work 
 - The SAS Python API (`sasviya`)
 - `PROC FOREST` in SAS
 
+The dataset used in this project is provided in the `CUSTOMS.csv` file. It contains approximately 7000 rows and 21 variables, representing information about incoming packages in Europe. Each row corresponds to a unique package, identified by a distinct package ID. The dataset includes various characteristics of the packages, as well as a target variable, `Inspection`, which indicates whether a package should be flagged for inspection.
+
 The goal is to show just how flexible and accessible SAS Viya Workbench can be, and how you can leverage SAS analytics, even if you’re not familiar with the SAS programming language.
 
 ## What You'll Find Here
